@@ -20,6 +20,7 @@
 		15AB35AB1F4AECA800F603FA /* WebMover.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AB35AA1F4AECA800F603FA /* WebMover.m */; };
 		15AB35AF1F4AECEE00F603FA /* SwiftlyBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB35AE1F4AECEE00F603FA /* SwiftlyBridge.swift */; };
 		15AB35B21F4AEDAB00F603FA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15AB35B11F4AEDAB00F603FA /* WebKit.framework */; };
+		15AB35B41F4AF47A00F603FA /* LocalizableString.strings in Resources */ = {isa = PBXBuildFile; fileRef = 15AB35B31F4AF47A00F603FA /* LocalizableString.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		15AB35AD1F4AECED00F603FA /* ObjectivecToJSBridging-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectivecToJSBridging-Bridging-Header.h"; sourceTree = "<group>"; };
 		15AB35AE1F4AECEE00F603FA /* SwiftlyBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftlyBridge.swift; sourceTree = "<group>"; };
 		15AB35B11F4AEDAB00F603FA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		15AB35B31F4AF47A00F603FA /* LocalizableString.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LocalizableString.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				15AB35831F4AD69100F603FA /* Assets.xcassets */,
 				15AB35921F4AE6FC00F603FA /* ObjectivecToJSBridging-Prefix.pch */,
+				15AB35B31F4AF47A00F603FA /* LocalizableString.strings */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				15AB358B1F4AD69100F603FA /* Assets.xcassets in Resources */,
 				15AB358C1F4AD69100F603FA /* LaunchScreen.storyboard in Resources */,
 				15AB359E1F4AEB9000F603FA /* inter.js in Resources */,
+				15AB35B41F4AF47A00F603FA /* LocalizableString.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

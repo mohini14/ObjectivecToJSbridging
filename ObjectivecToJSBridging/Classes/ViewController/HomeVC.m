@@ -70,7 +70,7 @@
 	[ImagePicker getImageFromImagePicker:self withCompletionHandler:^(UIImage *selectedImage, NSString* imagePath)
 	{
 		// method is used to send data back to Java script
-		[self.appWebView evaluateJavaScript:[NSString stringWithFormat:@"storeAndShow('%@')",imagePath] completionHandler:^(id _Nullable JSReturnValue, NSError * _Nullable error)
+		[self.appWebView evaluateJavaScript:[NSString stringWithFormat:@"showImage('%@')",imagePath] completionHandler:^(id _Nullable JSReturnValue, NSError * _Nullable error)
 		{
 			[weakSelf logJavaScriptReturnedValues:JSReturnValue withError:error];
 		}];

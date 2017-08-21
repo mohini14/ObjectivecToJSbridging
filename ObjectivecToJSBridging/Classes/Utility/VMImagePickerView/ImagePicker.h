@@ -12,6 +12,6 @@
 
 @property (strong,nonatomic) void (^sendImage)(UIImage* selectedImage,NSString* imagePath);
 
-+(void) getImageFromImagePicker :(UIViewController* )viewController withCompletionHandler:(void (^) (UIImage* selectedImage,NSString* imagePath))callBack;
++(void) getImageFromImagePicker :(UIViewController*)viewController withCompletionHandler:(void (^) (UIImage* selectedImage,NSString* imagePath))callBack;
 
 @end

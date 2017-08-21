@@ -6,7 +6,7 @@ function sendCount()
 	window.webkit.messageHandlers.interOp.postMessage(message)
 }
 
-function storeAndShow(imagePath)
+function showImage(imagePath)
 {
 	var resultDisplayDiv = document.getElementById("resultDisplay")
 	document.getElementById("imageDisplay").src = imagePath
