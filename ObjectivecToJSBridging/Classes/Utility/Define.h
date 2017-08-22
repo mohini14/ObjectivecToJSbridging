@@ -20,4 +20,10 @@
 #define kJPEGExtension	@"jpg"
 #define kGIFExtension   @"gif"
 
+// constants
+#define kconstintZero 0
+
+//default file names
+#define kDefaultFileName  @"latest_photo"
+
 @end

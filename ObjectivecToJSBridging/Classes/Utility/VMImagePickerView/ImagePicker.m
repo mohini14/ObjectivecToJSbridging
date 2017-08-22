@@ -18,13 +18,11 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
 	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
 }
 
 #pragma mark - ImagePicker custom methods
@@ -48,45 +46,20 @@
 +(void) getImageFromImagePicker:(UIViewController *)viewController withCompletionHandler:(void (^)(UIImage *,NSString* ))callBack
 {
 	ImagePicker* picker = [ImagePicker getImagePickerInstance];
+    
 	picker.delegate = picker;
 	picker.sendImage = callBack;
 	
 	UIAlertController* actionSheet = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"choose Image", nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 	
-	// checking if camera is supported by our device or not
-	if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-	{
-		// adding camera action to your actionsheet
-		UIAlertAction* camera = [UIAlertAction actionWithTitle:NSLocalizedString(@"Camera", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
-								 {
-									 picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-									 [viewController presentViewController:picker animated:YES completion:nil];
-								 }];
-		
-		[actionSheet addAction:camera];
-		
-	}
+    // add three options to image picker
+    [ImagePicker addCameraOption:picker onViewController:viewController withActionSheet:actionSheet];
+    [ImagePicker addgalleryOption:picker onViewController:viewController withActionSheet:actionSheet];
+    [ImagePicker addCancelButton:actionSheet];
 	
-	//checking if gallery is supported by our device or not
-	if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
-	{
-		// adding gallery action to your actionsheet
-		UIAlertAction* gallery = [UIAlertAction actionWithTitle:NSLocalizedString(@"Gallery", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
-								  {
-									  picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-									  [viewController presentViewController:picker animated:YES completion:nil];
-								  }];
-		[actionSheet addAction:gallery];
-	}
-	
-	// adding cancel action to your actionsheet
-	UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
-	[actionSheet addAction:cancel];
-	
-	// adding action sheet to the desired VC
+    // adding action sheet to the desired VC
 	[viewController presentViewController:actionSheet animated:YES completion:nil];
 }
-
 
 #pragma mark - UIImagePickerDelegates
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -101,36 +74,81 @@
 {
 	if(self.sendImage)
 	{
-
-		UIImage* image = info[UIImagePickerControllerOriginalImage];
-
-		NSError* error = nil;
-//		[imageData writeToFile:imagePath options:NSDataWritingAtomic error:&error];
-		
-		NSData *imageData = UIImagePNGRepresentation(image); //convert image into .png format.
-		
-		NSFileManager *fileManager = [NSFileManager defaultManager];//create instance of NSFileManager
-		
-		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //create an array and store result of our search for the documents directory in it
-		
-		NSString *documentsDirectory = [paths objectAtIndex:0]; //create NSString object, that holds our exact path to the documents directory
-		
-		NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", @"latest_photo"]]; //add our image to the path
-		
-		[fileManager createFileAtPath:fullPath contents:imageData attributes:nil]; //finally save the path (image)
-		
-		NSURL* imageURL = [NSURL fileURLWithPath:fullPath];
-
-		if (error) {
-			NSLog(@"%@", [error localizedDescription]);
-		}
-		
-		
-		
-		self.sendImage(info[UIImagePickerControllerOriginalImage],imageURL.absoluteString);
+        UIImage* image = info[UIImagePickerControllerOriginalImage];
+				
+        self.sendImage(info[UIImagePickerControllerOriginalImage],[self saveImageToDirectory:image]);
 		
 		[picker dismissViewControllerAnimated:YES completion:nil];
 	}
+}
+
+#pragma mark- Private methods
+// method saves imge to directory and returns its path
+-(NSString* ) saveImageToDirectory:(UIImage* )image
+{
+    NSError* error = nil;
+    
+    NSData* imageData = UIImagePNGRepresentation(image);
+    
+    //create an array and store result of our search for the documents directory in it
+    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    //create NSString object, that holds our exact path to the documents directory
+    NSString* documentsDirectory = [paths objectAtIndex:kconstintZero];
+    
+    NSString* fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",kDefaultFileName]];
+    
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:fullPath];
+    if(fileExists)
+    {
+        [[NSFileManager defaultManager] removeItemAtPath:fullPath error:&error];
+        [imageData writeToFile:fullPath atomically:NO];
+    }
+    else
+        [[NSFileManager defaultManager] createFileAtPath:fullPath contents:imageData attributes:nil];
+    
+    if (error)
+        NSLog(@"%@",[error localizedDescription]);
+    
+    return fullPath;
+}
+
+// method adds camra option to alert sheet
++(void)addCameraOption : (ImagePicker* )picker onViewController:(UIViewController* )controller withActionSheet:(UIAlertController* )actionSheet
+{
+    // checking if camera is supported by our device or not
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        // adding camera action to your actionsheet
+        UIAlertAction* camera = [UIAlertAction actionWithTitle:NSLocalizedString(@"Camera", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                                 {
+                                     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                     [controller presentViewController:picker animated:YES completion:nil];
+                                 }];
+        [actionSheet addAction:camera];
+    }
+}
+
+// adding gallery action to your actionsheet
++(void)addgalleryOption: (ImagePicker* )picker onViewController:(UIViewController* )controller withActionSheet:(UIAlertController* )actionSheet
+{
+    //checking if gallery is supported by our device or not
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        UIAlertAction* gallery = [UIAlertAction actionWithTitle:NSLocalizedString(@"Gallery", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+                                  {
+                                      picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                      [controller presentViewController:picker animated:YES completion:nil];
+                                  }];
+        [actionSheet addAction:gallery];
+    }
+}
+
+// adding cancel action to your actionsheet
++(void) addCancelButton : (UIAlertController* )actionSheet
+{
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
+    [actionSheet addAction:cancel];
 }
 
 @end

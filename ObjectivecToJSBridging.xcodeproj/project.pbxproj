@@ -24,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1511382B1F4C81D10068E6F5 /* ObjectivecToJSBridging-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjectivecToJSBridging-Prefix.pch"; sourceTree = "<group>"; };
 		15AB355F1F4AD5CC00F603FA /* ObjectivecToJSBridging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectivecToJSBridging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15AB35731F4AD5CC00F603FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15AB357B1F4AD69100F603FA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -35,7 +36,6 @@
 		15AB35861F4AD69100F603FA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		15AB35881F4AD69100F603FA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		15AB358F1F4AD73C00F603FA /* Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
-		15AB35921F4AE6FC00F603FA /* ObjectivecToJSBridging-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjectivecToJSBridging-Prefix.pch"; sourceTree = "<group>"; };
 		15AB359A1F4AEB9000F603FA /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		15AB359B1F4AEB9000F603FA /* inter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inter.js; sourceTree = "<group>"; };
 		15AB359C1F4AEB9000F603FA /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
@@ -84,6 +84,7 @@
 				15AB35791F4AD69100F603FA /* Classes */,
 				15AB35811F4AD69100F603FA /* Resources */,
 				15AB35731F4AD5CC00F603FA /* Info.plist */,
+				1511382B1F4C81D10068E6F5 /* ObjectivecToJSBridging-Prefix.pch */,
 			);
 			path = ObjectivecToJSBridging;
 			sourceTree = "<group>";
@@ -142,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				15AB35831F4AD69100F603FA /* Assets.xcassets */,
-				15AB35921F4AE6FC00F603FA /* ObjectivecToJSBridging-Prefix.pch */,
 				15AB35B31F4AF47A00F603FA /* LocalizableString.strings */,
 			);
 			path = Others;
@@ -331,6 +331,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "ObjectivecToJSBridging/ObjectivecToJSBridging-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -341,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -377,13 +378,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "ObjectivecToJSBridging/ObjectivecToJSBridging-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -397,7 +399,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 45C6ZJ7FZY;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
-				GCC_PREFIX_HEADER = "/Users/mohini/Desktop/codebase/ObjectivecToJSBridging/ObjectivecToJSBridging/Resources/Others/ObjectivecToJSBridging-Prefix.pch";
+				GCC_PREFIX_HEADER = "ObjectivecToJSBridging/ObjectivecToJSBridging-Prefix.pch";
 				INFOPLIST_FILE = ObjectivecToJSBridging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mohini.ObjectivecToJSBridging;
@@ -415,7 +417,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 45C6ZJ7FZY;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
-				GCC_PREFIX_HEADER = "/Users/mohini/Desktop/codebase/ObjectivecToJSBridging/ObjectivecToJSBridging/Resources/Others/ObjectivecToJSBridging-Prefix.pch";
+				GCC_PREFIX_HEADER = "ObjectivecToJSBridging/ObjectivecToJSBridging-Prefix.pch";
 				INFOPLIST_FILE = ObjectivecToJSBridging/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mohini.ObjectivecToJSBridging;
@@ -444,6 +446,7 @@
 				15AB35781F4AD5CC00F603FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
