@@ -101,11 +101,9 @@
 {
 	if(self.sendImage)
 	{
-//		NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//		NSString *documentsDirectory = [paths objectAtIndex:0];
-//		NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:@"latest_photo.png"];
+
 		UIImage* image = info[UIImagePickerControllerOriginalImage];
-//		NSData* imageData = UIImagePNGRepresentation(image);
+
 		NSError* error = nil;
 //		[imageData writeToFile:imagePath options:NSDataWritingAtomic error:&error];
 		
