@@ -24,7 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1511382B1F4C81D10068E6F5 /* ObjectivecToJSBridging-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjectivecToJSBridging-Prefix.pch"; sourceTree = "<group>"; };
 		15AB355F1F4AD5CC00F603FA /* ObjectivecToJSBridging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectivecToJSBridging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15AB35731F4AD5CC00F603FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15AB357B1F4AD69100F603FA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		15AB35AE1F4AECEE00F603FA /* SwiftlyBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftlyBridge.swift; sourceTree = "<group>"; };
 		15AB35B11F4AEDAB00F603FA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		15AB35B31F4AF47A00F603FA /* LocalizableString.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LocalizableString.strings; sourceTree = "<group>"; };
+		15EE4D4D1F4D667E0099B82C /* ObjectivecToJSBridging-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjectivecToJSBridging-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,6 @@
 				15AB35791F4AD69100F603FA /* Classes */,
 				15AB35811F4AD69100F603FA /* Resources */,
 				15AB35731F4AD5CC00F603FA /* Info.plist */,
-				1511382B1F4C81D10068E6F5 /* ObjectivecToJSBridging-Prefix.pch */,
 			);
 			path = ObjectivecToJSBridging;
 			sourceTree = "<group>";
@@ -142,6 +141,7 @@
 		15AB35821F4AD69100F603FA /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				15EE4D4D1F4D667E0099B82C /* ObjectivecToJSBridging-Prefix.pch */,
 				15AB35831F4AD69100F603FA /* Assets.xcassets */,
 				15AB35B31F4AF47A00F603FA /* LocalizableString.strings */,
 			);
