@@ -52,7 +52,7 @@
 	
 	UIAlertController* actionSheet = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"choose Image", nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 	
-    // add three options to image picker
+    // add three options to image picker (CAmera, Gallery, Cancel)
     [ImagePicker addCameraOption:picker onViewController:viewController withActionSheet:actionSheet];
     [ImagePicker addgalleryOption:picker onViewController:viewController withActionSheet:actionSheet];
     [ImagePicker addCancelButton:actionSheet];

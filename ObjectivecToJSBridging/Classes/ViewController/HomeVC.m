@@ -7,7 +7,7 @@
 //
 
 #import "HomeVC.h"
-#import <ObjectivecToJSbridging-Swift.h>
+#import <ObjectivecToJSBridging-Swift.h>
 
 @interface HomeVC ()
 
