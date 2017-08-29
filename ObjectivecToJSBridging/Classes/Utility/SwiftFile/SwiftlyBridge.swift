@@ -24,8 +24,6 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 import Foundation
 import WebKit
 
-
-
 @objc public class SwiftlyBridge: NSObject
 {
     class func buildURL(_ indexHTMLPath:String) ->URL

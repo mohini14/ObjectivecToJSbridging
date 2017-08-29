@@ -10,8 +10,8 @@
 
 @interface ImagePicker : UIImagePickerController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
-@property (strong,nonatomic) void (^sendImage)(UIImage* selectedImage,NSString* imagePath);
+@property (strong,nonatomic) void (^sendImagePath)(UIImage* selectedImage,NSString* imagePath);
 
-+(void) getImageFromImagePicker :(UIViewController*)viewController withCompletionHandler:(void (^) (UIImage* selectedImage,NSString* imagePath))callBack;
++(void) getImagePathFromImagePicker :(UIViewController*)viewController withCompletionHandler:(void (^) (UIImage* selectedImage,NSString* imagePath))callBack;
 
 @end
