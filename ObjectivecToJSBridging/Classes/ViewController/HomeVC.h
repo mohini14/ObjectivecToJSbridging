@@ -11,7 +11,5 @@
 
 @interface HomeVC : UIViewController<WKScriptMessageHandler>
 
-@property (strong, nonatomic)WKWebView* appWebView;
-
 @end
 

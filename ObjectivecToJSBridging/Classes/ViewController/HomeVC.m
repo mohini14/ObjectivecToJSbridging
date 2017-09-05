@@ -11,6 +11,8 @@
 
 @interface HomeVC ()
 
+@property (strong, nonatomic)WKWebView* appWebView;
+
 @end
 
 @implementation HomeVC
